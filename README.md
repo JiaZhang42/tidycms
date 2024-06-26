@@ -6,14 +6,13 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of `tidycms` is to provide a set of functions to easily access
-public datasets from Centers for Medicare & Medicaid Services (CMS). The
-package is built on top of `httr2`. With user-friendly syntax, one can
-get a tidy tibble in a few lines of code.
+The goal of `tidycms` is to easily access public datasets from Centers
+for Medicare & Medicaid Services (CMS). The package is built on top of
+`httr2`. With user-friendly syntax, one can get a tidy tibble in a few
+lines of code.
 
-Check the CMS API documentation at <https://data.cms.gov/api-docs/> and
-FAQs at
-<https://data.cms.gov/sites/default/files/2024-05/39b98adf-b5e0-4487-a19e-4dc5c1503d41/API%20Guide%20Formatted%201_5.pdf>.
+Check the [CMS API documentation](https://data.cms.gov/api-docs/) and
+[FAQs](https://data.cms.gov/sites/default/files/2024-05/39b98adf-b5e0-4487-a19e-4dc5c1503d41/API%20Guide%20Formatted%201_5.pdf).
 
 ## Installation
 
@@ -51,15 +50,26 @@ cms_datasets
 ```
 
 This table contains the basic information of all **latest** public
-datasets from CMS. Columns include - `title` - `identifier`: the
-“Dataset Type Identifier”, which doesn’t change and always points to the
-latest version of the dataset. For “Dataset Version Identifier”, visit
-its `landing_page`. - `temporal`: time period - `modified`: last
-modified date - `description` - `reference`: documentation link, named
-“describedBy” by CMS - `landing_page`: webpage for the dataset
+datasets from CMS. Columns include
+
+- `title`
+
+- `identifier`: the “Dataset Type Identifier”, which doesn’t change and
+  always points to the latest version of the dataset. For “Dataset
+  Version Identifier”, visit its `landing_page`.
+
+- `temporal`: time period
+
+- `modified`: last modified date
+
+- `description`
+
+- `reference`: documentation link, named “describedBy” by CMS
+
+- `landing_page`: webpage for the dataset
 
 Alternatively, you can search for a specific dataset by keywords at [CMS
-website](https://data.cms.gov/search).
+website search](https://data.cms.gov/search).
 
 Either way, you could get the identifier of the dataset you are
 interested in. For example, the identifier for the dataset “Accountable

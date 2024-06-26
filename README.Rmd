@@ -1,5 +1,8 @@
 ---
 output: github_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -16,15 +19,21 @@ knitr::opts_chunk$set(
 # tidycms
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
-The goal of `tidycms` is to provide a set of functions to easily access public datasets from Centers for Medicare & Medicaid Services (CMS). The package is built on top of `httr2`. With user-friendly syntax, one can get a tidy tibble in a few lines of code.
+The goal of `tidycms` is to easily access public datasets from Centers
+for Medicare & Medicaid Services (CMS). The package is built on top of
+`httr2`. With user-friendly syntax, one can get a tidy tibble in a few
+lines of code.
 
-Check the CMS API documentation at <https://data.cms.gov/api-docs/> and FAQs at <https://data.cms.gov/sites/default/files/2024-05/39b98adf-b5e0-4487-a19e-4dc5c1503d41/API%20Guide%20Formatted%201_5.pdf>.
+Check the [CMS API documentation](https://data.cms.gov/api-docs/) and
+[FAQs](https://data.cms.gov/sites/default/files/2024-05/39b98adf-b5e0-4487-a19e-4dc5c1503d41/API%20Guide%20Formatted%201_5.pdf).
 
 ## Installation
 
-You can install the development version of tidycms from [GitHub](https://github.com/) with:
+You can install the development version of tidycms from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -33,7 +42,8 @@ devtools::install_github("JiaZhang42/tidycms")
 
 ## Example
 
-This is a basic example which shows you how to glimpse all available datasets from CMS:
+This is a basic example which shows you how to glimpse all available
+datasets from CMS:
 
 ```{r example}
 library(tidycms)
@@ -41,27 +51,44 @@ cms_datasets <- show_datasets()
 cms_datasets
 ```
 
-This table contains the basic information of all **latest** public datasets from CMS. Columns include 
-- `title`
-- `identifier`: the "Dataset Type Identifier", which doesn't change and always points to the latest version of the dataset. For "Dataset Version Identifier", visit its `landing_page`.
-- `temporal`: time period
-- `modified`: last modified date
-- `description`
-- `reference`: documentation link, named "describedBy" by CMS
-- `landing_page`: webpage for the dataset
+This table contains the basic information of all **latest** public
+datasets from CMS. Columns include
 
-Alternatively, you can search for a specific dataset by keywords at [CMS website](https://data.cms.gov/search). 
+-    `title`
 
-Either way, you could get the identifier of the dataset you are interested in. For example, the identifier for the dataset "Accountable Care Organization Participants" is `9767cb68-8ea9-4f0b-8179-9431abc89f11`.
+-   `identifier`: the "Dataset Type Identifier", which doesn't change
+    and always points to the latest version of the dataset. For "Dataset
+    Version Identifier", visit its `landing_page`.
 
-Then you can preview the first 10 rows of the dataset: 
+-    `temporal`: time period
+
+-    `modified`: last modified date
+
+-    `description`
+
+-    `reference`: documentation link, named "describedBy" by CMS
+
+-    `landing_page`: webpage for the dataset
+
+Alternatively, you can search for a specific dataset by keywords at [CMS
+website search](https://data.cms.gov/search).
+
+Either way, you could get the identifier of the dataset you are
+interested in. For example, the identifier for the dataset "Accountable
+Care Organization Participants" is
+`9767cb68-8ea9-4f0b-8179-9431abc89f11`.
+
+Then you can preview the first 10 rows of the dataset:
+
 ```{r}
 data_id <- '9767cb68-8ea9-4f0b-8179-9431abc89f11'
 aco_participants <- slice_head_data(data_id, 10)
 aco_participants
 ```
 
-If you want to collect all data from a dataset, you can use the `collect_data()` function:
+If you want to collect all data from a dataset, you can use the
+`collect_data()` function:
+
 ```{r}
 data_id <- 'f1a8c197-b53d-4c24-9770-aea5d5a97dfb'
 aco_participants_all <- collect_data(data_id, ask_for_confirmation = FALSE)
