@@ -1,0 +1,42 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# tidycms
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of `tidycms` is to provide a set of functions to easily access public datasets from Centers for Medicare & Medicaid Services (CMS). The package is built on top of `httr2`. With user-friendly syntax, one can get a tidy tibble in a few lines of code.
+
+## Installation
+
+You can install the development version of tidycms from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("JiaZhang42/tidycms")
+```
+
+## Example
+
+This is a basic example which shows you how to glimpse all available datasets from CMS:
+
+```{r example}
+library(tidycms)
+cms_datasets <- show_datasets()
+cms_datasets
+```
+
+
