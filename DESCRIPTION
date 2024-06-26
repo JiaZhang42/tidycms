@@ -1,12 +1,25 @@
 Package: tidycms
-Title: What the Package Does (One Line, Title Case)
+Title: A Tidy Wrapper to the Centers for Medicare & Medicaid Services (CMS) API
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Jia", "Zhang", , "jzhanggx@connect.ust.hk", role = c("aut", "cre"))
+Description: An API wrapper for CMS data built with `httr2`, which returns data in a tidy format. Check the CMS API documentation at <https://data.cms.gov/api-docs/> and FAQs at <https://data.cms.gov/sites/default/files/2024-05/39b98adf-b5e0-4487-a19e-4dc5c1503d41/API%20Guide%20Formatted%201_5.pdf>.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    cli,
+    dplyr,
+    glue,
+    httr2,
+    magrittr,
+    purrr,
+    readr,
+    rlang,
+    stringr,
+    tibble,
+    tidyr
