@@ -23,3 +23,5 @@ Imports:
     stringr,
     tibble,
     tidyr
+URL: https://github.com/JiaZhang42/tidycms
+BugReports: https://github.com/JiaZhang42/tidycms/issues
