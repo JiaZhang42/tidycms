@@ -9,9 +9,9 @@
 #'
 #' @examples
 #' data_id <- '9767cb68-8ea9-4f0b-8179-9431abc89f11'
-#' collect_data(data_id)
+#' collect_data(data_id, ask_for_confirmation = FALSE)
 #' aco_participants_all <- collect_data(data_id, ask_for_confirmation = FALSE)
-#' aco_participants_id <- collect_data(data_id, select = c('aco_id'))
+#' aco_participants_id <- collect_data(data_id, select = c('aco_id'), ask_for_confirmation = FALSE)
 collect_data <- function(data_id, select = NULL, ask_for_confirmation = TRUE){
   n_row <- httr2::request(glue::glue('https://data.cms.gov/data-api/v1/dataset/{data_id}/data/stats')) %>%
     httr2::req_perform() %>%
