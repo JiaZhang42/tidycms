@@ -22,17 +22,11 @@ collect_data <- function(data_id, select = NULL, ask_for_confirmation = TRUE){
 
   if (ask_for_confirmation) {
     # Prompt user for input
-    user_input <- readline(prompt = paste(
-      "Do you want to proceed with the download? ",
-      "1: No",
-      "2: Definitely",
-      "3: Absolutely no",
-      sep = "\n"
-    ))
-    if (user_input != '2') {
+    user_input <- utils::menu(c("No", "Definitely", "Absolutely no"), title = "Do you want to proceed with the download?")
+    if (user_input != 2) {
       cli::col_magenta("Download cancelled.") %>%
         cli::cli_alert_warning()
-      return()
+      return(cat())
     }
   }
   column <- select %>% paste0(collapse = ',')
